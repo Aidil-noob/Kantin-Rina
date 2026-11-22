@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Riwayat Transaksi · Warung Bu Rina</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-page="riwayat">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">R</span>
+        <span>
+          <strong>Warung Bu Rina</strong>
+          <small>Kasir &amp; Antrean</small>
+        </span>
+      </a>
+      <nav class="mainnav" aria-label="Navigasi utama">
+        <a href="/" data-nav="dashboard">Dashboard</a>
+        <a href="/kasir" data-nav="kasir">Kasir</a>
+        <a href="/produk" data-nav="produk">Produk</a>
+        <a href="/riwayat" data-nav="riwayat">Riwayat</a>
+        <a href="/laporan" data-nav="laporan">Laporan</a>
+        <a href="/antrean" data-nav="antrean">Antrean</a>
+        <a href="/layar" target="_blank" rel="noopener">Layar ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-head">
+      <div>
+        <h1>Riwayat Transaksi</h1>
+        <p>Semua nota yang tercatat, beserta status pembayarannya.</p>
+      </div>
+      <div class="page-actions">
+        <label class="visually-hidden" for="date">Tanggal</label>
+        <input id="date" type="date" style="width:auto">
+        <a class="btn btn-secondary" href="/kasir">Kasir</a>
+      </div>
+    </div>
+
+    <section class="stats">
+      <article class="stat">
+        <div class="stat-label">Transaksi</div>
+        <div class="stat-value" id="stat-count">—</div>
+        <div class="stat-sub">nota lunas</div>
+      </article>
+      <article class="stat">
+        <div class="stat-label">Omzet</div>
+        <div class="stat-value" id="stat-omzet">—</div>
+        <div class="stat-sub">setelah diskon</div>
+      </article>
+      <article class="stat">
+        <div class="stat-label">Item Terjual</div>
+        <div class="stat-value" id="stat-items">—</div>
+        <div class="stat-sub">total qty</div>
+      </article>
+      <article class="stat">
+        <div class="stat-label">Dibatalkan</div>
+        <div class="stat-value" id="stat-void">—</div>
+        <div class="stat-sub">tidak dihitung omzet</div>
+      </article>
+    </section>
+
+    <section class="card section-gap">
+      <div class="card-header">
+        <h2>Daftar Nota</h2>
+        <small id="date-label">—</small>
+      </div>
+      <div class="card-body flush table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Kode</th>
+              <th>Waktu</th>
+              <th>Item</th>
+              <th>Metode</th>
+              <th class="num">Total</th>
+              <th>Status</th>
+              <th class="text-right">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="history-body">
+            <tr><td colspan="7" class="empty">Memuat transaksi…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="detail-dialog">
+    <div class="dialog-head">
+      <h2>Detail Transaksi</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Tutup">&times;</button>
+    </div>
+    <div class="dialog-body" id="detail-body"></div>
+    <div class="dialog-foot">
+      <button class="btn btn-secondary" type="button" data-close>Tutup</button>
+      <button class="btn btn-danger" type="button" id="void-transaction">Batalkan Transaksi</button>
+    </div>
+  </dialog>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/riwayat.js"></script>
+</body>
+</html>

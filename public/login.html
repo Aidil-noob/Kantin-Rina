@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masuk · Warung Bu Rina</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-wrap">
+    <form class="card auth-card" id="login-form" novalidate>
+      <div class="auth-brand">
+        <span class="brand-mark">R</span>
+        <span>
+          <strong>Warung Bu Rina</strong>
+          <small>Kasir &amp; Antrean</small>
+        </span>
+      </div>
+
+      <h1>Masuk</h1>
+      <p class="muted small">Masukkan password admin untuk melanjutkan.</p>
+
+      <div class="field mt-3">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+      </div>
+
+      <p class="auth-error" id="login-error" role="alert"></p>
+
+      <button class="btn btn-lg btn-block" type="submit" id="login-button">Masuk</button>
+
+      <p class="muted small auth-foot">Akses hanya untuk pengelola warung.</p>
+    </form>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

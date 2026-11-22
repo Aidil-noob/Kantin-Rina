@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laporan Harian · Warung Bu Rina</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-page="laporan">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">R</span>
+        <span>
+          <strong>Warung Bu Rina</strong>
+          <small>Kasir &amp; Antrean</small>
+        </span>
+      </a>
+      <nav class="mainnav" aria-label="Navigasi utama">
+        <a href="/" data-nav="dashboard">Dashboard</a>
+        <a href="/kasir" data-nav="kasir">Kasir</a>
+        <a href="/produk" data-nav="produk">Produk</a>
+        <a href="/riwayat" data-nav="riwayat">Riwayat</a>
+        <a href="/laporan" data-nav="laporan">Laporan</a>
+        <a href="/antrean" data-nav="antrean">Antrean</a>
+        <a href="/layar" target="_blank" rel="noopener">Layar ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-head">
+      <div>
+        <h1>Laporan Harian</h1>
+        <p id="report-date">—</p>
+      </div>
+      <div class="page-actions">
+        <label class="visually-hidden" for="date">Tanggal laporan</label>
+        <input id="date" type="date" style="width:auto">
+        <button class="btn btn-secondary" type="button" id="export">Unduh CSV</button>
+        <a class="btn" href="/kasir">Kasir</a>
+      </div>
+    </div>
+
+    <section class="stats">
+      <article class="stat">
+        <div class="stat-label">Omzet</div>
+        <div class="stat-value" id="stat-omzet">—</div>
+        <div class="stat-sub">penjualan bersih</div>
+      </article>
+      <article class="stat">
+        <div class="stat-label">Transaksi</div>
+        <div class="stat-value" id="stat-transactions">—</div>
+        <div class="stat-sub">nota lunas</div>
+      </article>
+      <article class="stat">
+        <div class="stat-label">Item Terjual</div>
+        <div class="stat-value" id="stat-items">—</div>
+        <div class="stat-sub">total qty</div>
+      </article>
+      <article class="stat">
+        <div class="stat-label">Rata-rata / Nota</div>
+        <div class="stat-value" id="stat-average">—</div>
+        <div class="stat-sub" id="stat-discount">diskon —</div>
+      </article>
+    </section>
+
+    <div class="grid grid-2 section-gap">
+      <section class="card">
+        <div class="card-header">
+          <h2>Produk Terlaris</h2>
+          <small>10 teratas</small>
+        </div>
+        <div class="card-body flush table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Produk</th>
+                <th class="num">Qty</th>
+                <th class="num">Omzet</th>
+              </tr>
+            </thead>
+            <tbody id="top-products">
+              <tr><td colspan="3" class="empty">Memuat…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Metode Pembayaran</h2>
+          <small id="void-note">—</small>
+        </div>
+        <div class="card-body flush table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Metode</th>
+                <th class="num">Nota</th>
+                <th class="num">Total</th>
+              </tr>
+            </thead>
+            <tbody id="payment-methods">
+              <tr><td colspan="3" class="empty">Memuat…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <section class="card section-gap">
+      <div class="card-body">
+        <p class="muted small">
+          Laporan menghitung transaksi <strong>lunas</strong> saja. Transaksi yang dibatalkan tidak
+          masuk omzet, namun tetap tercatat di riwayat. Unduh CSV untuk rekap di Excel/Spreadsheet.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/laporan.js"></script>
+</body>
+</html>

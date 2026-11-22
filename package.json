@@ -1,0 +1,20 @@
+{
+  "name": "kantin-rina",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplikasi kasir Warung Bu Rina dan antrean Kantin",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --env-file-if-exists=.env --watch server.js",
+    "test": "node --test",
+    "hash-password": "node scripts/hash-password.js",
+    "backup": "node --env-file-if-exists=.env scripts/backup.js"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

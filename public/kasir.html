@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kasir · Warung Bu Rina</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
+</head>
+<body data-page="kasir">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">R</span>
+        <span>
+          <strong>Warung Bu Rina</strong>
+          <small>Kasir &amp; Antrean</small>
+        </span>
+      </a>
+      <nav class="mainnav" aria-label="Navigasi utama">
+        <a href="/" data-nav="dashboard">Dashboard</a>
+        <a href="/kasir" data-nav="kasir">Kasir</a>
+        <a href="/produk" data-nav="produk">Produk</a>
+        <a href="/riwayat" data-nav="riwayat">Riwayat</a>
+        <a href="/laporan" data-nav="laporan">Laporan</a>
+        <a href="/antrean" data-nav="antrean">Antrean</a>
+        <a href="/layar" target="_blank" rel="noopener">Layar ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-head">
+      <div>
+        <h1>Kasir</h1>
+        <p>Pilih menu, lalu proses pembayaran.</p>
+      </div>
+      <div class="page-actions">
+        <a class="btn btn-secondary" href="/riwayat">Riwayat Transaksi</a>
+      </div>
+    </div>
+
+    <div class="pos-layout">
+      <section class="card pos-products" aria-label="Daftar produk">
+        <div class="card-body">
+          <div class="toolbar mb-0">
+            <div class="grow">
+              <label class="visually-hidden" for="search">Cari produk</label>
+              <input id="search" type="search" placeholder="Cari produk…" autocomplete="off">
+            </div>
+          </div>
+          <div class="category-chips mt-3" id="categories"></div>
+          <div class="product-grid" id="product-grid">
+            <p class="muted">Memuat produk…</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card pos-cart" aria-label="Keranjang pesanan">
+        <div class="card-header">
+          <h2>Pesanan</h2>
+          <button class="btn btn-ghost btn-sm" type="button" id="clear-cart">Kosongkan</button>
+        </div>
+        <div class="card-body">
+          <div class="cart-items" id="cart-items">
+            <div class="cart-empty">Keranjang masih kosong.<br>Pilih produk di samping.</div>
+          </div>
+
+          <div class="cart-summary">
+            <div class="summary-row">
+              <span class="muted">Subtotal</span>
+              <span id="subtotal">Rp0</span>
+            </div>
+            <div class="summary-row">
+              <span class="muted">Diskon</span>
+              <input id="discount" class="discount-input" type="number" min="0" step="500" value="0" inputmode="numeric">
+            </div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <span class="amount" id="total">Rp0</span>
+            </div>
+
+            <div class="field mt-2 mb-0">
+              <label>Metode pembayaran</label>
+              <div class="segmented" id="payment-method">
+                <button type="button" class="active" data-method="tunai">Tunai</button>
+                <button type="button" data-method="qris">QRIS</button>
+                <button type="button" data-method="transfer">Transfer</button>
+              </div>
+            </div>
+
+            <div class="field mb-0" id="paid-field">
+              <label for="paid">Uang diterima</label>
+              <input id="paid" type="number" min="0" step="500" value="0" inputmode="numeric" placeholder="0">
+              <div class="quick-cash">
+                <button class="btn btn-secondary btn-sm" type="button" data-cash="exact">Uang pas</button>
+                <button class="btn btn-secondary btn-sm" type="button" data-cash="20000">20rb</button>
+                <button class="btn btn-secondary btn-sm" type="button" data-cash="50000">50rb</button>
+                <button class="btn btn-secondary btn-sm" type="button" data-cash="100000">100rb</button>
+              </div>
+            </div>
+
+            <div class="change-box" id="change-box">
+              <span>Kembalian</span>
+              <span id="change">Rp0</span>
+            </div>
+
+            <button class="btn btn-lg btn-block" type="button" id="checkout">Proses Pembayaran</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="receipt-dialog">
+    <div class="dialog-head">
+      <h2>Pembayaran Berhasil</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Tutup">&times;</button>
+    </div>
+    <div class="dialog-body">
+      <div class="receipt-wrap">
+        <div class="receipt" id="receipt"></div>
+      </div>
+    </div>
+    <div class="dialog-foot">
+      <button class="btn btn-secondary" type="button" id="new-transaction">Transaksi Baru</button>
+      <button class="btn" type="button" id="print-receipt">Cetak Struk</button>
+    </div>
+  </dialog>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/kasir.js"></script>
+</body>
+</html>

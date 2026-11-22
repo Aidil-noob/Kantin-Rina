@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · Warung Bu Rina</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-page="dashboard">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">R</span>
+        <span>
+          <strong>Warung Bu Rina</strong>
+          <small>Kasir &amp; Antrean</small>
+        </span>
+      </a>
+      <nav class="mainnav" aria-label="Navigasi utama">
+        <a href="/" data-nav="dashboard">Dashboard</a>
+        <a href="/kasir" data-nav="kasir">Kasir</a>
+        <a href="/produk" data-nav="produk">Produk</a>
+        <a href="/riwayat" data-nav="riwayat">Riwayat</a>
+        <a href="/laporan" data-nav="laporan">Laporan</a>
+        <a href="/antrean" data-nav="antrean">Antrean</a>
+        <a href="/layar" target="_blank" rel="noopener">Layar ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-head">
+      <div>
+        <h1>Dashboard</h1>
+        <p id="today-label">Ringkasan hari ini</p>
+      </div>
+      <div class="page-actions">
+        <a class="btn" href="/kasir">Buka Kasir</a>
+        <a class="btn btn-secondary" href="/antrean">Kelola Antrean</a>
+      </div>
+    </div>
+
+    <section class="stats" aria-label="Ringkasan hari ini">
+      <article class="stat">
+        <div class="stat-label">Omzet Hari Ini</div>
+        <div class="stat-value" id="stat-omzet">—</div>
+        <div class="stat-sub" id="stat-omzet-sub">transaksi lunas</div>
+      </article>
+      <article class="stat">
+        <div class="stat-label">Transaksi</div>
+        <div class="stat-value" id="stat-transactions">—</div>
+        <div class="stat-sub">nota tercatat</div>
+      </article>
+      <article class="stat">
+        <div class="stat-label">Item Terjual</div>
+        <div class="stat-value" id="stat-items">—</div>
+        <div class="stat-sub">porsi &amp; minuman</div>
+      </article>
+      <article class="stat">
+        <div class="stat-label">Antrean Menunggu</div>
+        <div class="stat-value" id="stat-queue">—</div>
+        <div class="stat-sub" id="stat-queue-sub">di kantin</div>
+      </article>
+    </section>
+
+    <div class="grid grid-2 section-gap">
+      <section class="card">
+        <div class="card-header">
+          <h2>Antrean Kantin</h2>
+          <a class="btn btn-ghost btn-sm" href="/antrean">Kelola →</a>
+        </div>
+        <div class="card-body" id="queue-summary">
+          <p class="muted">Memuat antrean…</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Pintasan</h2>
+          <small>Akses cepat</small>
+        </div>
+        <div class="card-body">
+          <div class="link-row">
+            <a class="btn" href="/kasir">Transaksi Baru</a>
+            <a class="btn btn-secondary" href="/produk">Kelola Produk</a>
+            <a class="btn btn-secondary" href="/laporan">Laporan Harian</a>
+            <a class="btn btn-secondary" href="/layar" target="_blank" rel="noopener">Buka Layar Antrean</a>
+          </div>
+          <div class="divider"></div>
+          <p class="muted small">
+            Tips: gunakan <strong>Ambil Nomor</strong> di halaman Antrean setiap ada pelanggan kantin,
+            lalu tampilkan halaman <strong>Layar</strong> di monitor agar nomor tampil besar.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card section-gap">
+      <div class="card-header">
+        <h2>Transaksi Terakhir</h2>
+        <a class="btn btn-ghost btn-sm" href="/riwayat">Lihat semua →</a>
+      </div>
+      <div class="card-body flush table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Kode</th>
+              <th>Waktu</th>
+              <th>Item</th>
+              <th class="num">Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="recent-body">
+            <tr><td colspan="5" class="empty">Memuat transaksi…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

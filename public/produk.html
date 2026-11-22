@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produk · Warung Bu Rina</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-page="produk">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">R</span>
+        <span>
+          <strong>Warung Bu Rina</strong>
+          <small>Kasir &amp; Antrean</small>
+        </span>
+      </a>
+      <nav class="mainnav" aria-label="Navigasi utama">
+        <a href="/" data-nav="dashboard">Dashboard</a>
+        <a href="/kasir" data-nav="kasir">Kasir</a>
+        <a href="/produk" data-nav="produk">Produk</a>
+        <a href="/riwayat" data-nav="riwayat">Riwayat</a>
+        <a href="/laporan" data-nav="laporan">Laporan</a>
+        <a href="/antrean" data-nav="antrean">Antrean</a>
+        <a href="/layar" target="_blank" rel="noopener">Layar ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-head">
+      <div>
+        <h1>Produk</h1>
+        <p>Kelola menu, harga, dan stok warung.</p>
+      </div>
+      <div class="page-actions">
+        <button class="btn" type="button" id="add-product">+ Tambah Produk</button>
+      </div>
+    </div>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="grow" style="min-width:220px">
+          <label class="visually-hidden" for="search">Cari produk</label>
+          <input id="search" type="search" placeholder="Cari nama atau kategori…" autocomplete="off">
+        </div>
+        <small id="product-count">0 produk</small>
+      </div>
+      <div class="card-body flush table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Produk</th>
+              <th>Kategori</th>
+              <th class="num">Harga</th>
+              <th class="num">Stok</th>
+              <th>Status</th>
+              <th class="text-right">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="product-body">
+            <tr><td colspan="6" class="empty">Memuat produk…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="product-dialog">
+    <form id="product-form" novalidate>
+      <div class="dialog-head">
+        <h2 id="form-title">Tambah Produk</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Tutup">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <input type="hidden" id="product-id">
+        <div class="form-grid">
+          <div class="field span-2">
+            <label for="name">Nama produk</label>
+            <input id="name" name="name" type="text" maxlength="60" required placeholder="Contoh: Nasi Rames">
+          </div>
+          <div class="field">
+            <label for="category">Kategori</label>
+            <input id="category" name="category" type="text" list="category-list" placeholder="Makanan">
+            <datalist id="category-list">
+              <option value="Makanan"></option>
+              <option value="Minuman"></option>
+              <option value="Camilan"></option>
+            </datalist>
+          </div>
+          <div class="field">
+            <label for="price">Harga (Rp)</label>
+            <input id="price" name="price" type="number" min="0" step="500" required placeholder="10000">
+          </div>
+          <div class="field">
+            <label for="stock">Stok</label>
+            <input id="stock" name="stock" type="number" min="0" step="1" placeholder="Kosongkan = tanpa batas">
+            <span class="hint">Biarkan kosong jika stok tidak dihitung.</span>
+          </div>
+          <div class="field">
+            <label>Status</label>
+            <label class="switch">
+              <input id="is-active" name="is_active" type="checkbox" checked>
+              Dijual di kasir
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="dialog-foot">
+        <button class="btn btn-secondary" type="button" data-close>Batal</button>
+        <button class="btn" type="submit" id="save-product">Simpan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/produk.js"></script>
+</body>
+</html>
